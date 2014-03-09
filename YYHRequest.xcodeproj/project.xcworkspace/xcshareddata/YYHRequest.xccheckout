@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>95370040-8768-4340-AD5D-A7E84EE58285</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YYHRequest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3B39A547-DC88-4079-AAC7-54CDF7A1CE6F</key>
+		<string>ssh://github.com/angelodipaolo/YYHRequest.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YYHRequest.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3B39A547-DC88-4079-AAC7-54CDF7A1CE6F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/angelodipaolo/YYHRequest.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3B39A547-DC88-4079-AAC7-54CDF7A1CE6F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3B39A547-DC88-4079-AAC7-54CDF7A1CE6F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>YYHRequest</string>
+		</dict>
+	</array>
+</dict>
+</plist>
