@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17D03A0C18CD68140093241D /* YYHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D03A0B18CD68140093241D /* YYHRequest.m */; };
 		17E44C3D18CBD37300C84051 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E44C3C18CBD37300C84051 /* Foundation.framework */; };
 		17E44C3F18CBD37300C84051 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E44C3E18CBD37300C84051 /* CoreGraphics.framework */; };
 		17E44C4118CBD37300C84051 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E44C4018CBD37300C84051 /* UIKit.framework */; };
 		17E44C4718CBD37300C84051 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17E44C4518CBD37300C84051 /* InfoPlist.strings */; };
 		17E44C4918CBD37300C84051 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E44C4818CBD37300C84051 /* main.m */; };
 		17E44C4D18CBD37300C84051 /* YYHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E44C4C18CBD37300C84051 /* YYHAppDelegate.m */; };
-		17E44C4F18CBD37300C84051 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E44C4E18CBD37300C84051 /* Images.xcassets */; };
 		17E44C5618CBD37300C84051 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E44C5518CBD37300C84051 /* XCTest.framework */; };
 		17E44C5718CBD37300C84051 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E44C3C18CBD37300C84051 /* Foundation.framework */; };
 		17E44C5818CBD37300C84051 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E44C4018CBD37300C84051 /* UIKit.framework */; };
 		17E44C6018CBD37300C84051 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17E44C5E18CBD37300C84051 /* InfoPlist.strings */; };
 		17E44C6218CBD37300C84051 /* YYHRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E44C6118CBD37300C84051 /* YYHRequestTests.m */; };
-		17E44C6D18CBD39300C84051 /* YYHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E44C6C18CBD39300C84051 /* YYHRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17D03A0A18CD68140093241D /* YYHRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHRequest.h; sourceTree = "<group>"; };
+		17D03A0B18CD68140093241D /* YYHRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHRequest.m; sourceTree = "<group>"; };
 		17E44C3918CBD37300C84051 /* YYHRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYHRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E44C3C18CBD37300C84051 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17E44C3E18CBD37300C84051 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -43,14 +44,11 @@
 		17E44C4A18CBD37300C84051 /* YYHRequest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YYHRequest-Prefix.pch"; sourceTree = "<group>"; };
 		17E44C4B18CBD37300C84051 /* YYHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYHAppDelegate.h; sourceTree = "<group>"; };
 		17E44C4C18CBD37300C84051 /* YYHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYHAppDelegate.m; sourceTree = "<group>"; };
-		17E44C4E18CBD37300C84051 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		17E44C5418CBD37300C84051 /* YYHRequestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YYHRequestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17E44C5518CBD37300C84051 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		17E44C5D18CBD37300C84051 /* YYHRequestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YYHRequestTests-Info.plist"; sourceTree = "<group>"; };
 		17E44C5F18CBD37300C84051 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17E44C6118CBD37300C84051 /* YYHRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYHRequestTests.m; sourceTree = "<group>"; };
-		17E44C6B18CBD39300C84051 /* YYHRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHRequest.h; sourceTree = "<group>"; };
-		17E44C6C18CBD39300C84051 /* YYHRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17D03A0918CD68140093241D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				17D03A0A18CD68140093241D /* YYHRequest.h */,
+				17D03A0B18CD68140093241D /* YYHRequest.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		17E44C3018CBD37300C84051 = {
 			isa = PBXGroup;
 			children = (
@@ -110,12 +117,10 @@
 		17E44C4218CBD37300C84051 /* YYHRequest */ = {
 			isa = PBXGroup;
 			children = (
+				17D03A0918CD68140093241D /* Classes */,
 				17E44C4B18CBD37300C84051 /* YYHAppDelegate.h */,
 				17E44C4C18CBD37300C84051 /* YYHAppDelegate.m */,
-				17E44C4E18CBD37300C84051 /* Images.xcassets */,
 				17E44C4318CBD37300C84051 /* Supporting Files */,
-				17E44C6B18CBD39300C84051 /* YYHRequest.h */,
-				17E44C6C18CBD39300C84051 /* YYHRequest.m */,
 			);
 			path = YYHRequest;
 			sourceTree = "<group>";
@@ -226,7 +231,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				17E44C4718CBD37300C84051 /* InfoPlist.strings in Resources */,
-				17E44C4F18CBD37300C84051 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17E44C4918CBD37300C84051 /* main.m in Sources */,
-				17E44C6D18CBD39300C84051 /* YYHRequest.m in Sources */,
+				17D03A0C18CD68140093241D /* YYHRequest.m in Sources */,
 				17E44C4D18CBD37300C84051 /* YYHAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +452,7 @@
 				17E44C6718CBD37300C84051 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17E44C6818CBD37300C84051 /* Build configuration list for PBXNativeTarget "YYHRequestTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +461,7 @@
 				17E44C6A18CBD37300C84051 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
