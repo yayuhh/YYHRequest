@@ -43,7 +43,9 @@
 #pragma mark - Creating a YYHRequest
 
 + (YYHRequest *)loadRequestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
-    return [[YYHRequest alloc] initWithURL:url success:success failure:failure];
+    YYHRequest *request = [[YYHRequest alloc] initWithURL:url success:success failure:failure];
+    [request loadReqest];
+    return request;
 }
 
 - (instancetype)initWithURL:(NSURL *)url success:(void (^)(NSData *data))success  failure:(void (^)(NSError *error))failure {
@@ -53,14 +55,16 @@
         self.url = url;
         self.successCallback = success;
         self.failureCallback = failure;
-        
-        NSURLRequest *request = [self requestWithURL:_url];
-        self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
-        self.connection.delegateQueue = [YYHRequest operationQueue];
-        [self.connection start];
     }
     
     return self;
+}
+
+- (void)loadReqest {
+    NSURLRequest *request = [self requestWithURL:_url];
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+    self.connection.delegateQueue = [YYHRequest operationQueue];
+    [self.connection start];
 }
 
 - (void)responseReceived {
