@@ -20,6 +20,8 @@
 
 @implementation YYHRequest
 
+#pragma mark - Accessors
+
 + (NSOperationQueue *)operationQueue {
     static NSOperationQueue *_operationQueue;
     
@@ -55,6 +57,8 @@
     return self;
 }
 
+#pragma mark - Callbacks
+
 - (void)onSuccess:(void (^)(NSData *data))success {
     self.successCallback = success;
 }
@@ -84,11 +88,16 @@
     self.successCallback(self.responseData);
 }
 
-#pragma mark - Creating a NSURLRequest
+#pragma mark - NSMutableURLRequest
 
 - (NSMutableURLRequest *)request {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
     request.HTTPMethod = self.method ?: @"GET";
+    
+    for (NSString *key in self.headers) {
+        [request setValue:self.headers[key] forHTTPHeaderField:key];
+    }
+    
     return request;
 }
 

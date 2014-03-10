@@ -47,6 +47,11 @@ Create request and load manually.
 @property (nonatomic, copy) NSString *method;
 
 /**
+ Request headers.
+ */
+@property (nonatomic, copy) NSMutableDictionary *headers;
+
+/**
  Set callback block to be invoked when the request has loaded successfully.
  */
 - (void)onSuccess:(void (^)(NSData *data))success;
