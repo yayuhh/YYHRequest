@@ -22,9 +22,9 @@
     
     NSURL *url = [NSURL URLWithString:@"http://www.google.com/"];
     
-    [YYHRequest requestWithURL:url success:^(NSData *data) {
+    [YYHRequest loadRequestWithURL:url success:^(NSData *data) {
         NSLog(@"data %@", data);
-    } error:^(NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"error %@", error);
     }];
     

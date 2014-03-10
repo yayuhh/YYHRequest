@@ -42,7 +42,7 @@
 
 #pragma mark - Creating a YYHRequest
 
-+ (YYHRequest *)requestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
++ (YYHRequest *)loadRequestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
     return [[YYHRequest alloc] initWithURL:url success:success failure:failure];
 }
 
