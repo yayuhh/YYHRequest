@@ -92,7 +92,7 @@
     return request;
 }
 
-#pragma mark - NSURLConnectionDelegate
+#pragma mark - NSURLConnectionDataDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     _response = response;

@@ -10,12 +10,6 @@
 
 #import "YYHRequest.h"
 
-@interface YYHAppDelegate ()
-
-@property (nonatomic, strong) YYHRequest *testRequest;
-
-@end
-
 @implementation YYHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -24,6 +18,14 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.google.com/"];
+    
+    [YYHRequest loadRequestWithURL:url success:^(NSData *data) {
+        // response received
+    } failure:^(NSError *error) {
+        // response failed
+    }];
     
     return YES;
 }
