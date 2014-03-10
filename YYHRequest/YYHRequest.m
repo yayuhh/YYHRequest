@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, readwrite, copy) NSURLResponse *response;
 @property (nonatomic, copy) NSMutableData *responseData;
+@property (nonatomic, copy) void (^successCallback)(NSData *data);
+@property (nonatomic, copy) void (^failureCallback)(NSError *error);
 
 @end
 
@@ -53,6 +55,15 @@
     return self;
 }
 
+- (void)onSuccess:(void (^)(NSData *data))success {
+    self.successCallback = success;
+}
+
+
+- (void)onFailure:(void (^)(NSError *error))failure {
+    self.failureCallback = failure;
+}
+
 #pragma mark - Loading a Request
 
 + (instancetype)loadRequestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
@@ -64,7 +75,7 @@
 }
 
 - (void)loadRequest {
-    NSURLRequest *request = [self requestWithURL:_url];
+    NSURLRequest *request = [self requestWithURL:self.url];
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
     self.connection.delegateQueue = [YYHRequest operationQueue];
     [self.connection start];

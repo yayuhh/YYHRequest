@@ -19,14 +19,14 @@
 @property (nonatomic, copy) NSURL *url;
 
 /**
- Called when request has loaded successfully.
+ Set callback block to be invoked when the request has loaded successfully.
  */
-@property (nonatomic, copy) void (^successCallback)(NSData *data);
+- (void)onSuccess:(void (^)(NSData *data))success;
 
 /**
- Called when request fails to load.
+ Set callback block to be invoked when the request fails.
  */
-@property (nonatomic, copy) void (^failureCallback)(NSError *error);
+- (void)onFailure:(void (^)(NSError *error))failure;
 
 /**
  NSURLResponse object representing the state of the received response.
