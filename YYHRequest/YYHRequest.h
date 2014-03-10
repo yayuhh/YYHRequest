@@ -9,7 +9,30 @@
 #import <Foundation/Foundation.h>
 
 /**
- Lightweight class for loading HTTP requests. Built on `NSURLConnection` and `NSOperationQueue`.
+ Simple and lightweight class for loading HTTP requests. Built on `NSURLConnection` and `NSOperationQueue`.
+
+ ## Usage
+
+ Create and load a request
+
+    NSURL *url = [NSURL URLWithString:@"http://foo.bar"];
+
+    [YYHRequest loadRequestWithURL:url success:^(NSData *data) {
+
+    } failure:^(NSError *error) {
+
+    }];
+
+Create request and load manually.
+
+    YYHRequest *request = [YYHRequest requestWithURL:url];
+
+    [request onSuccess:^(NSData *data) {
+        // request complete
+    }];
+
+    [request loadRequest];
+
  */
 @interface YYHRequest : NSObject <NSURLConnectionDataDelegate>
 
@@ -37,7 +60,7 @@
 
 /**
  Create request.
- 
+
  @param url NSURL used to load the request.
  @param success Called when request has loaded successfully.
  @param failure Called when request fails to load.
@@ -48,7 +71,7 @@
 
 /**
  Initialize request.
- 
+
  @param url NSURL used to load the request.
  @param success Called when request has loaded successfully.
  @param failure Called when request fails to load.
@@ -59,7 +82,7 @@
 
 /**
  Create and load a request.
- 
+
  @param url NSURL used to load the request.
  @param success Called when request has loaded successfully.
  @param failure Called when request fails to load.
