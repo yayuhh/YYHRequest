@@ -11,11 +11,8 @@
 @interface YYHRequest ()
 
 @property (nonatomic, strong) NSURLConnection *connection;
-@property (nonatomic, copy) NSURL *url;
 @property (nonatomic, readwrite, copy) NSURLResponse *response;
 @property (nonatomic, copy) NSMutableData *responseData;
-@property (nonatomic, copy) void (^successCallback)(NSData *data);
-@property (nonatomic, copy) void (^failureCallback)(NSError *error);
 
 @end
 
@@ -40,27 +37,33 @@
     return _responseData;
 }
 
-#pragma mark - Creating a YYHRequest
+#pragma mark - Initializing a YYHRequest
 
-+ (YYHRequest *)loadRequestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
-    YYHRequest *request = [[YYHRequest alloc] initWithURL:url success:success failure:failure];
-    [request loadReqest];
-    return request;
++ (instancetype)requestWithURL:(NSURL *)url {
+    return [[YYHRequest alloc] initWithURL:url];
 }
 
-- (instancetype)initWithURL:(NSURL *)url success:(void (^)(NSData *data))success  failure:(void (^)(NSError *error))failure {
+- (instancetype)initWithURL:(NSURL *)url {
     self = [super init];
     
     if (self) {
         self.url = url;
-        self.successCallback = success;
-        self.failureCallback = failure;
     }
     
     return self;
 }
 
-- (void)loadReqest {
+#pragma mark - Loading a Request
+
++ (instancetype)loadRequestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
+    YYHRequest *request = [[YYHRequest alloc] initWithURL:url];
+    request.successCallback = success;
+    request.failureCallback =failure;
+    [request loadRequest];
+    return request;
+}
+
+- (void)loadRequest {
     NSURLRequest *request = [self requestWithURL:_url];
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
     self.connection.delegateQueue = [YYHRequest operationQueue];
