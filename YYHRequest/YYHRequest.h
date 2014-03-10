@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- Simple and lightweight class for loading HTTP requests. Built on `NSURLConnection` and `NSOperationQueue`.
+ Simple and lightweight class for loading asynchronous HTTP requests. Built on `NSURLConnection` and `NSOperationQueue`.
 
  ## Usage
 
@@ -40,6 +40,11 @@ Create request and load manually.
  NSURL used to load the request.
  */
 @property (nonatomic, copy) NSURL *url;
+
+/**
+ NSURL used to load the request.
+ */
+@property (nonatomic, copy) NSString *method;
 
 /**
  Set callback block to be invoked when the request has loaded successfully.

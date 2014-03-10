@@ -69,14 +69,13 @@
 + (instancetype)loadRequestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
     YYHRequest *request = [[YYHRequest alloc] initWithURL:url];
     request.successCallback = success;
-    request.failureCallback =failure;
+    request.failureCallback = failure;
     [request loadRequest];
     return request;
 }
 
 - (void)loadRequest {
-    NSURLRequest *request = [self requestWithURL:self.url];
-    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+    self.connection = [[NSURLConnection alloc] initWithRequest:[self request] delegate:self startImmediately:NO];
     self.connection.delegateQueue = [YYHRequest operationQueue];
     [self.connection start];
 }
@@ -87,8 +86,10 @@
 
 #pragma mark - Creating a NSURLRequest
 
-- (NSURLRequest *)requestWithURL:(NSURL *)url {
-    return [NSURLRequest requestWithURL:url];
+- (NSMutableURLRequest *)request {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
+    request.HTTPMethod = self.method ?: @"GET";
+    return request;
 }
 
 #pragma mark - NSURLConnectionDelegate
