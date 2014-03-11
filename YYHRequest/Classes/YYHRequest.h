@@ -68,6 +68,11 @@ Create request and load manually.
 @property (nonatomic, copy) NSMutableDictionary *headers;
 
 /**
+ Determines if the success and failure callbacks are called on the main thread. Default to YES.
+ */
+@property (nonatomic, assign, getter = shouldCompleteOnMainThread) BOOL completeOnMainThread;
+
+/**
  Set callback block to be invoked when the request has loaded successfully.
  */
 - (void)onSuccess:(void (^)(NSData *data))success;

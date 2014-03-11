@@ -62,6 +62,7 @@
     
     if (self) {
         self.url = url;
+        self.completeOnMainThread = YES;
     }
     
     return self;
@@ -122,7 +123,13 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    [self responseReceived];
+    if (self.shouldCompleteOnMainThread) {
+        if (![[NSThread currentThread] isMainThread]) {
+            [self performSelectorOnMainThread:@selector(responseReceived) withObject:nil waitUntilDone:YES];
+        }
+    } else {
+        [self responseReceived];
+    }
 }
 
 @end
