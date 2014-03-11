@@ -22,21 +22,22 @@
 
 #pragma mark - Accessors
 
-+ (NSOperationQueue *)operationQueue {
-    static NSOperationQueue *_operationQueue;
++ (NSOperationQueue *)sharedRequestQueue {
+    static NSOperationQueue *_sharedRequestQueue;
+    static dispatch_once_t onceToken;
     
-    if (!_operationQueue) {
-        _operationQueue = [NSOperationQueue new];
-        _operationQueue.name = @"YYHRequest Connection Queue";
-        _operationQueue.maxConcurrentOperationCount = 4;
-    }
+    dispatch_once(&onceToken, ^{
+        _sharedRequestQueue = [NSOperationQueue new];
+        _sharedRequestQueue.name = @"YYHRequest Connection Queue";
+        _sharedRequestQueue.maxConcurrentOperationCount = 4;
+    });
     
-    return _operationQueue;
+    return _sharedRequestQueue;
 }
 
 - (NSOperationQueue *)requestQueue {
     if (!_requestQueue) {
-        _requestQueue = [YYHRequest operationQueue];
+        _requestQueue = [YYHRequest sharedRequestQueue];
     }
     
     return _requestQueue;

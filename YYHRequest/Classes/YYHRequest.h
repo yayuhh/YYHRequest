@@ -36,10 +36,17 @@ Create request and load manually.
  */
 @interface YYHRequest : NSObject <NSURLConnectionDataDelegate>
 
-// @name Specifying the Operation Queue
+// @name Getting the Shared Request Operation Queue
 
 /**
- Set to specify the NSOperationQueue instance used for queueing connection operations. An internal operation queue is created if none is specified.
+ Access the shared request queue instance.
+ */
++ (NSOperationQueue *)sharedRequestQueue;
+
+// @name Specifying the Request Operation Queue
+
+/**
+ Set to specify the NSOperationQueue instance used for queueing connection operations. If unspecified a shared request queue is created as `sharedRequestQueue`.
  */
 @property (nonatomic, strong) NSOperationQueue *requestQueue;
 
