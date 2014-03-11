@@ -27,6 +27,7 @@
     
     if (!_operationQueue) {
         _operationQueue = [NSOperationQueue new];
+        _operationQueue.name = @"YYHRequest Download Queue";
         _operationQueue.maxConcurrentOperationCount = 4;
     }
     
