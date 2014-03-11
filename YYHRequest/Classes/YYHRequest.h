@@ -36,6 +36,15 @@ Create request and load manually.
  */
 @interface YYHRequest : NSObject <NSURLConnectionDataDelegate>
 
+// @name Specifying the Operation Queue
+
+/**
+ Set to specify the NSOperationQueue instance used for queueing connection operations. An internal operation queue is created if none is specified.
+ */
+@property (nonatomic, strong) NSOperationQueue *requestQueue;
+
+// @name Configuring a Request
+
 /**
  NSURL used to load the request.
  */
@@ -60,6 +69,8 @@ Create request and load manually.
  Set callback block to be invoked when the request fails.
  */
 - (void)onFailure:(void (^)(NSError *error))failure;
+
+// @name Reading the Response
 
 /**
  NSURLResponse object representing the state of the received response.

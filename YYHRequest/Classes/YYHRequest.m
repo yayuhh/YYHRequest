@@ -27,11 +27,19 @@
     
     if (!_operationQueue) {
         _operationQueue = [NSOperationQueue new];
-        _operationQueue.name = @"YYHRequest Download Queue";
+        _operationQueue.name = @"YYHRequest Connection Queue";
         _operationQueue.maxConcurrentOperationCount = 4;
     }
     
     return _operationQueue;
+}
+
+- (NSOperationQueue *)requestQueue {
+    if (!_requestQueue) {
+        _requestQueue = [YYHRequest operationQueue];
+    }
+    
+    return _requestQueue;
 }
 
 - (NSMutableData *)responseData {
@@ -81,7 +89,7 @@
 
 - (void)loadRequest {
     self.connection = [[NSURLConnection alloc] initWithRequest:[self request] delegate:self startImmediately:NO];
-    self.connection.delegateQueue = [YYHRequest operationQueue];
+    self.connection.delegateQueue = self.requestQueue;
     [self.connection start];
 }
 
