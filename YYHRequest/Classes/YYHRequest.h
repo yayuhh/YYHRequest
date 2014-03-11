@@ -63,6 +63,11 @@ Create request and load manually.
 @property (nonatomic, copy) NSString *method;
 
 /**
+ HTTP body data.
+ */
+@property (nonatomic, copy) NSData *body;
+
+/**
  Request headers.
  */
 @property (nonatomic, copy) NSMutableDictionary *headers;

@@ -104,6 +104,7 @@
 - (NSMutableURLRequest *)request {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
     request.HTTPMethod = self.method ?: @"GET";
+    request.HTTPBody = self.body;
     
     for (NSString *key in self.headers) {
         [request setValue:self.headers[key] forHTTPHeaderField:key];
