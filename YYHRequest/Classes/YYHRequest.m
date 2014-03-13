@@ -86,7 +86,7 @@
 #pragma mark - Initializing a YYHRequest
 
 + (instancetype)requestWithURL:(NSURL *)url {
-    return [[YYHRequest alloc] initWithURL:url];
+    return [[self alloc] initWithURL:url];
 }
 
 - (instancetype)initWithURL:(NSURL *)url {
@@ -112,7 +112,9 @@
 }
 
 - (void)loadRequest {
-    [self addRequestParameters];
+    if (self.parameters) {
+        [self serializeRequestParameters];
+    }
     
     self.connection = [[NSURLConnection alloc] initWithRequest:[self request] delegate:self startImmediately:NO];
     self.connection.delegateQueue = self.requestQueue;
@@ -144,18 +146,20 @@
 
 #pragma mark - Request Parameters
 
-- (void)addRequestParameters {
-    if (self.parameters) {
-        if (!self.contentType) {
-            self.contentType = @"application/x-www-form-urlencoded";
-        }
-        
-        if ([self.method isEqualToString:@"GET"]) {
-            self.url = [self queryParametersURL];
-        } else {
-            self.body = [[self queryString] dataUsingEncoding:NSUTF8StringEncoding];
-        }
+- (void)serializeRequestParameters {
+    if (!self.contentType) {
+        self.contentType = @"application/x-www-form-urlencoded";
     }
+    
+    if ([self.method isEqualToString:@"GET"]) {
+        self.url = [self queryParametersURL];
+    } else {
+        self.body = [self serializedRequestBody];
+    }
+}
+
+- (NSData *)serializedRequestBody {
+    return [[self queryString] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (NSURL *)queryParametersURL {
@@ -169,7 +173,7 @@
     for (NSString *key in self.parameters) {
         NSString *value = self.parameters[key];
         
-        if (value) {
+        if ([value isKindOfClass:[NSString class]]) {
             NSString *encodedKey = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSString *encodedValue = [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             [encodedParameters addObject:[NSString stringWithFormat:@"%@=%@", encodedKey, encodedValue]];

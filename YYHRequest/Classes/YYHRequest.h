@@ -131,6 +131,10 @@ Create request and load manually.
  */
 - (instancetype)initWithURL:(NSURL *)url;
 
+// @name Request Serialization
+
+- (NSData *)serializedRequestBody;
+
 // @name Loading a Request
 
 /**
