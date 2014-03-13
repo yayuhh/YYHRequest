@@ -112,7 +112,9 @@
 }
 
 - (void)responseReceived {
-    self.successCallback(self.responseData);
+    if (self.successCallback) {
+        self.successCallback(self.responseData);
+    }
 }
 
 #pragma mark - NSMutableURLRequest
