@@ -9,5 +9,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.8'
   s.source       = { :git => 'https://github.com/angelodipaolo/YYHRequest.git', :tag => '0.0.1' }
-  s.source_files =  'YYHRequest/Classes/**/*.{h,m}'
+  s.source_files =  'YYHRequest/Classes/YYHRequest/**/*.{h,m}'
+
+  s.subspec 'JSON' do |ss|
+    ss.source_files = 'YYHRequest/Classes/YYHJSONRequest/**/*.{h,m}'
+  end
 end
