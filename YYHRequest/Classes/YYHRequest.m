@@ -59,6 +59,14 @@
     return _headers;
 }
 
+- (void)setUserAgent:(NSString *)userAgent {
+    self.headers[@"User-Agent"] = userAgent;
+}
+
+- (NSString *)userAgent {
+    return self.headers[@"User-Agent"];
+}
+
 #pragma mark - Initializing a YYHRequest
 
 + (instancetype)requestWithURL:(NSURL *)url {

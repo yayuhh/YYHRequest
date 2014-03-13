@@ -68,6 +68,11 @@ Create request and load manually.
 @property (nonatomic, copy) NSData *body;
 
 /**
+ User agent string.
+ */
+@property (nonatomic, copy) NSString *userAgent;
+
+/**
  Request headers.
  */
 @property (nonatomic, copy) NSMutableDictionary *headers;
