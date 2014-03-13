@@ -59,12 +59,28 @@
     return _headers;
 }
 
+- (NSMutableDictionary *)parameters {
+    if (!_parameters) {
+        _parameters = [NSMutableDictionary new];
+    }
+    
+    return _parameters;
+}
+
 - (void)setUserAgent:(NSString *)userAgent {
     self.headers[@"User-Agent"] = userAgent;
 }
 
 - (NSString *)userAgent {
     return self.headers[@"User-Agent"];
+}
+
+- (void)setContentType:(NSString *)contentType {
+    self.headers[@"Content-Type"] = contentType;
+}
+
+- (NSString *)contentType {
+    return self.headers[@"Content-Type"];
 }
 
 #pragma mark - Initializing a YYHRequest
@@ -78,24 +94,14 @@
     
     if (self) {
         self.url = url;
+        self.method = @"GET";
         self.completeOnMainThread = YES;
     }
     
     return self;
 }
 
-#pragma mark - Callbacks
-
-- (void)onSuccess:(void (^)(NSData *data))success {
-    self.successCallback = success;
-}
-
-
-- (void)onFailure:(void (^)(NSError *error))failure {
-    self.failureCallback = failure;
-}
-
-#pragma mark - Loading a Request
+#pragma mark - Loading the Request
 
 + (instancetype)loadRequestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
     YYHRequest *request = [[YYHRequest alloc] initWithURL:url];
@@ -106,9 +112,30 @@
 }
 
 - (void)loadRequest {
+    if (self.parameters) {
+        self.contentType = @"application/x-www-form-urlencoded";
+        
+        if ([self.method isEqualToString:@"GET"]) {
+            self.url = [self queryParametersURL];
+        } else {
+            self.body = [[self queryString] dataUsingEncoding:NSUTF8StringEncoding];
+        }
+    }
+    
     self.connection = [[NSURLConnection alloc] initWithRequest:[self request] delegate:self startImmediately:NO];
     self.connection.delegateQueue = self.requestQueue;
     [self.connection start];
+}
+
+#pragma mark - Handling the Response
+
+- (void)onSuccess:(void (^)(NSData *data))success {
+    self.successCallback = success;
+}
+
+
+- (void)onFailure:(void (^)(NSError *error))failure {
+    self.failureCallback = failure;
 }
 
 - (void)responseReceived {
@@ -123,17 +150,44 @@
     }
 }
 
+#pragma mark - Query String
+
+- (NSURL *)queryParametersURL {
+    NSString *urlString = [NSString stringWithFormat:@"%@?%@", [self.url absoluteString], [self queryString]];
+    return [NSURL URLWithString:urlString];
+}
+
+- (NSString *)queryString {
+    NSMutableArray *encodedParameters = [NSMutableArray arrayWithCapacity:self.parameters.count];
+    
+    for (NSString *key in self.parameters) {
+        NSString *value = self.parameters[key];
+        
+        if (value) {
+            NSString *encodedKey = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSString *encodedValue = [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [encodedParameters addObject:[NSString stringWithFormat:@"%@=%@", encodedKey, encodedValue]];
+        }
+    }
+    
+    return [encodedParameters componentsJoinedByString:@"&"];
+}
+
 #pragma mark - NSMutableURLRequest
 
 - (NSMutableURLRequest *)request {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.url];
-    request.HTTPMethod = self.method ?: @"GET";
+    request.HTTPMethod = self.method;
     request.HTTPBody = self.body;
     
     for (NSString *key in self.headers) {
         [request setValue:self.headers[key] forHTTPHeaderField:key];
     }
     
+    if (self.body.length) {
+        [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)self.body.length] forHTTPHeaderField:@"Content-Length"];
+    }
+
     return request;
 }
 

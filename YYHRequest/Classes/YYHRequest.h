@@ -73,9 +73,19 @@ Create request and load manually.
 @property (nonatomic, copy) NSString *userAgent;
 
 /**
+ User agent string.
+ */
+@property (nonatomic, copy) NSString *contentType;
+
+/**
  Request headers.
  */
 @property (nonatomic, copy) NSMutableDictionary *headers;
+
+/**
+ Request parameters.
+ */
+@property (nonatomic, copy) NSMutableDictionary *parameters;
 
 /**
  Determines if the success and failure callbacks are called on the main thread. Default to YES.
