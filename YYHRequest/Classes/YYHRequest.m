@@ -112,15 +112,7 @@
 }
 
 - (void)loadRequest {
-    if (self.parameters) {
-        self.contentType = @"application/x-www-form-urlencoded";
-        
-        if ([self.method isEqualToString:@"GET"]) {
-            self.url = [self queryParametersURL];
-        } else {
-            self.body = [[self queryString] dataUsingEncoding:NSUTF8StringEncoding];
-        }
-    }
+    [self addRequestParameters];
     
     self.connection = [[NSURLConnection alloc] initWithRequest:[self request] delegate:self startImmediately:NO];
     self.connection.delegateQueue = self.requestQueue;
@@ -150,7 +142,21 @@
     }
 }
 
-#pragma mark - Query String
+#pragma mark - Request Parameters
+
+- (void)addRequestParameters {
+    if (self.parameters) {
+        if (!self.contentType) {
+            self.contentType = @"application/x-www-form-urlencoded";
+        }
+        
+        if ([self.method isEqualToString:@"GET"]) {
+            self.url = [self queryParametersURL];
+        } else {
+            self.body = [[self queryString] dataUsingEncoding:NSUTF8StringEncoding];
+        }
+    }
+}
 
 - (NSURL *)queryParametersURL {
     NSString *urlString = [NSString stringWithFormat:@"%@?%@", [self.url absoluteString], [self queryString]];
