@@ -117,6 +117,12 @@
     }
 }
 
+- (void)requestFailed:(NSError *)error {
+    if (self.failureCallback) {
+        self.failureCallback(error);
+    }
+}
+
 #pragma mark - NSMutableURLRequest
 
 - (NSMutableURLRequest *)request {
@@ -133,6 +139,14 @@
 
 #pragma mark - NSURLConnectionDataDelegate
 
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    if (self.shouldCompleteOnMainThread) {
+        [self performSelectorOnMainThread:@selector(requestFailed:) withObject:error waitUntilDone:[NSThread isMainThread]];
+    } else {
+        [self requestFailed:error];
+    }
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     _response = response;
 }
@@ -143,9 +157,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     if (self.shouldCompleteOnMainThread) {
-        if (![[NSThread currentThread] isMainThread]) {
-            [self performSelectorOnMainThread:@selector(responseReceived) withObject:nil waitUntilDone:YES];
-        }
+        [self performSelectorOnMainThread:@selector(responseReceived) withObject:nil waitUntilDone:[NSThread isMainThread]];
     } else {
         [self responseReceived];
     }
