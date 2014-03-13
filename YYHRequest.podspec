@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.source_files =  'YYHRequest/Classes/YYHRequest/**/*.{h,m}'
 
   s.subspec 'JSON' do |ss|
-    ss.source_files = 'YYHRequest/Classes/YYHJSONRequest/**/*.{h,m}'
+    ss.source_files = 'YYHRequest/Classes/YYHJSONRequest/**/*.{h,m}', 'YYHRequest/Classes/YYHRequest/**/*.{h,m}'
   end
 end
