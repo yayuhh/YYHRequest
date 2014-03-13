@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1754278918D140E5005711F5 /* YYHJSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1754278818D140E5005711F5 /* YYHJSONRequest.m */; };
 		17D03A0C18CD68140093241D /* YYHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D03A0B18CD68140093241D /* YYHRequest.m */; };
 		17E44C3D18CBD37300C84051 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E44C3C18CBD37300C84051 /* Foundation.framework */; };
 		17E44C3F18CBD37300C84051 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E44C3E18CBD37300C84051 /* CoreGraphics.framework */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1754278718D140E5005711F5 /* YYHJSONRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHJSONRequest.h; sourceTree = "<group>"; };
+		1754278818D140E5005711F5 /* YYHJSONRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHJSONRequest.m; sourceTree = "<group>"; };
 		17D03A0A18CD68140093241D /* YYHRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHRequest.h; sourceTree = "<group>"; };
 		17D03A0B18CD68140093241D /* YYHRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHRequest.m; sourceTree = "<group>"; };
 		17E44C3918CBD37300C84051 /* YYHRequest Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YYHRequest Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,11 +78,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1754278318D13FF2005711F5 /* YYHJSONRequest */ = {
+			isa = PBXGroup;
+			children = (
+				1754278718D140E5005711F5 /* YYHJSONRequest.h */,
+				1754278818D140E5005711F5 /* YYHJSONRequest.m */,
+			);
+			path = YYHJSONRequest;
+			sourceTree = "<group>";
+		};
 		17D03A0918CD68140093241D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				17D03A0A18CD68140093241D /* YYHRequest.h */,
 				17D03A0B18CD68140093241D /* YYHRequest.m */,
+				1754278318D13FF2005711F5 /* YYHJSONRequest */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -249,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1754278918D140E5005711F5 /* YYHJSONRequest.m in Sources */,
 				17E44C4918CBD37300C84051 /* main.m in Sources */,
 				17D03A0C18CD68140093241D /* YYHRequest.m in Sources */,
 				17E44C4D18CBD37300C84051 /* YYHAppDelegate.m in Sources */,
