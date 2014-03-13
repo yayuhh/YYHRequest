@@ -51,6 +51,14 @@
     return _responseData;
 }
 
+- (NSMutableDictionary *)headers {
+    if (!_headers) {
+        _headers = [NSMutableDictionary new];
+    }
+    
+    return _headers;
+}
+
 #pragma mark - Initializing a YYHRequest
 
 + (instancetype)requestWithURL:(NSURL *)url {
