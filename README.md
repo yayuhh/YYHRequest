@@ -45,4 +45,4 @@ Create request and load manually.
 
 ## Documentation
 
-See the (documentation)[http://cocoadocs.org/docsets/YYHRequest/0.0.2/] for more information.
+See the [documentation](http://cocoadocs.org/docsets/YYHRequest/0.0.2/) for more information.
