@@ -36,21 +36,21 @@ Create request and load manually.
  */
 @interface YYHRequest : NSObject <NSURLConnectionDataDelegate>
 
-// @name Getting the Shared Request Operation Queue
+/// @name Getting the Shared Request Operation Queue
 
 /**
  Access the shared request queue instance.
  */
 + (NSOperationQueue *)sharedRequestQueue;
 
-// @name Specifying the Request Operation Queue
+/// @name Specifying the Request Operation Queue
 
 /**
  Set to specify the NSOperationQueue instance used for queueing connection operations. If unspecified a shared request queue is created as `sharedRequestQueue`.
  */
 @property (nonatomic, strong) NSOperationQueue *requestQueue;
 
-// @name Configuring a Request
+/// @name Configuring a Request
 
 /**
  NSURL used to load the request.
@@ -102,14 +102,14 @@ Create request and load manually.
  */
 - (void)onFailure:(void (^)(NSError *error))failure;
 
-// @name Reading the Response
+/// @name Reading the Response
 
 /**
  NSURLResponse object representing the state of the received response.
  */
 @property (nonatomic, readonly, copy) NSURLResponse *response;
 
-// @name Creating a Request
+/// @name Creating a Request
 
 /**
  Create request.
@@ -120,7 +120,7 @@ Create request and load manually.
  */
 + (instancetype)requestWithURL:(NSURL *)url;
 
-// @name Initializing a Request
+/// @name Initializing a Request
 
 /**
  Initialize request.
@@ -131,11 +131,11 @@ Create request and load manually.
  */
 - (instancetype)initWithURL:(NSURL *)url;
 
-// @name Request Serialization
+/// @name Request Serialization
 
 - (NSData *)serializedRequestBody;
 
-// @name Loading a Request
+/// @name Loading a Request
 
 /**
  Create and load a request.
@@ -145,6 +145,14 @@ Create request and load manually.
  @param failure Called when request fails to load.
  */
 + (instancetype)loadRequestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure;
+
+/**
+ Create connection and load the request.
+ 
+ @param success Called when request has loaded successfully.
+ @param failure Called when request fails to load.
+ */
+- (void)loadRequestWithSuccess:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure;
 
 /**
  Create connection and load request.

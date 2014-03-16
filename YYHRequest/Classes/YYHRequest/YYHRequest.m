@@ -105,10 +105,14 @@
 
 + (instancetype)loadRequestWithURL:(NSURL *)url success:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
     YYHRequest *request = [[YYHRequest alloc] initWithURL:url];
-    request.successCallback = success;
-    request.failureCallback = failure;
-    [request loadRequest];
+    [request loadRequestWithSuccess:success failure:failure];
     return request;
+}
+
+- (void)loadRequestWithSuccess:(void (^)(NSData *data))success failure:(void (^)(NSError *error))failure {
+    self.successCallback = success;
+    self.failureCallback = failure;
+    [self loadRequest];
 }
 
 - (void)loadRequest {
