@@ -1,0 +1,4 @@
+language: objective-c
+xcode_project: YYHRequest.xcodeproj
+xcode_scheme: "YYHRequest"
+xcode_sdk: iphonesimulator
