@@ -2,7 +2,7 @@
 //  YYHRequestTests.m
 //  YYHRequestTests
 //
-//  Created by angelo on 3/8/14.
+//  Created by Angelo Di Paolo on 3/8/14.
 //  Copyright (c) 2014 Yayuhh. All rights reserved.
 //
 

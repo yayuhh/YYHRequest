@@ -24,7 +24,7 @@
     [YYHRequest loadRequestWithURL:url success:^(NSData *data) {
         // response received
     } failure:^(NSError *error) {
-        // response failed
+        // reequest failed
     }];
     
     return YES;
