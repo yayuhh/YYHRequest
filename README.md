@@ -1,7 +1,7 @@
 YYHRequest
 ==========
 
-[![Build Status](https://travis-ci.org/angelodipaolo/YYHRequest.png?branch=master)](https://travis-ci.org/angelodipaolo/YYHRequest)
+[![Build Status](https://travis-ci.org/yayuhh/YYHRequest.png?branch=master)](https://travis-ci.org/yayuhh/YYHRequest)
 
 Simple and lightweight class for loading asynchronous HTTP requests. Built on `NSURLConnection` and `NSOperationQueue`. `YYHRequest` is not intended to be a full-featured networking framework but instead a simple wrapper to avoid the boilerplate of using `NSURLConnection` and `NSURLRequest` for simple networking tasks.
 
