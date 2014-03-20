@@ -47,4 +47,8 @@ Create request and load manually.
 
 ## Documentation
 
-See the [documentation](http://cocoadocs.org/docsets/YYHRequest/0.0.2/) for more information.
+See the [documentation](http://cocoadocs.org/docsets/YYHRequest) for more information.
+
+## Changes
+
+[Change log](https://github.com/angelodipaolo/YYHRequest/blob/master/history.md)
