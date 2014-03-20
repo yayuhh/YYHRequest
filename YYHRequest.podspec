@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = '0.0.3'
   s.license      = 'MIT'
   s.summary      = 'Simple and lightweight class for loading asynchronous HTTP requests.'
-  s.homepage     = 'https://github.com/angelodipaolo/YYHRequest'
+  s.homepage     = 'https://github.com/yayuhh/YYHRequest'
   s.author       = { 'Angelo Di Paolo' => 'angelod101@gmail.com' }
   s.social_media_url = 'http://twitter.com/angelodipaolo'
   s.ios.deployment_target = '6.0'
