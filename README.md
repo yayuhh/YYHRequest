@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/yayuhh/yyhrequest.png?label=ready&title=Ready)](https://waffle.io/yayuhh/yyhrequest)
 YYHRequest
 ==========
 
