@@ -61,7 +61,9 @@
     id json = [NSJSONSerialization JSONObjectWithData:data options:self.readingOptions error:&error];
     
     if (error) {
-        self.failureCallback(error);
+        if (self.failureCallback) {
+            self.failureCallback(error);
+        }
     } else if (self.successCallback) {
         self.successCallback(json);
     }
