@@ -21,7 +21,7 @@ Install JSON support
 
     pod 'YYHRequest/JSON'
 
-## Usage
+## Getting Started
 
 Create and load a request
 
@@ -45,6 +45,73 @@ Create request and load manually.
     }];
 
     [request loadRequest];
+
+## Usage
+
+### Load a Request
+
+    NSURL *url = [NSURL URLWithString:@"/"];
+
+    [YYHRequest loadRequestWithURL:url success:^(NSData *data) {
+        // request complete
+    } failure:^(NSError *error) {
+        // request failed
+    }];
+
+HTTP
+
+    GET /
+
+### Customize a Request
+
+    // set request method
+    request.method = @"PUT";
+
+    // set HTTP headers using headers dictionary
+    request.headers[@"User-Agent"] = @"value";
+
+    // set header values via properties
+    request.userAgent = @"value";
+
+HTTP
+
+    PUT /
+    User-Agent: value
+    Content-Type: application/x-www-form-urlencoded
+
+### Sending Query Parameters
+
+    YYHRequest *request = [YYHRequest requestWithURL:[NSURL URLWithString:@"/"]];
+    request.parameters[@"foo"] = @"bar";
+
+HTTP
+
+    GET /?foo=bar
+
+### Posting Data
+
+    YYHRequest *request = [YYHRequest requestWithURL:[NSURL URLWithString:@"/"]];
+    request.method = @"POST";
+    request.parameters[@"foo"] = @"bar";
+
+HTTP
+
+    POST /
+    Content-Type: application/x-www-form-urlencoded
+    foo=bar
+
+### Posting JSON
+
+    YYHJSONRequest *request = [YYHJSONRequest requestWithURL:[NSURL URLWithString:@"/"]];
+    request.method = @"POST";
+    request.parameters[@"foo"] = @"bar";
+
+HTTP
+
+    POST /
+    Content-Type: application/json
+    {"foo":"bar"}
+
 
 ## Documentation
 
