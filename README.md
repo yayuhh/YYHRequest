@@ -115,7 +115,7 @@ HTTP
 
 ## Documentation
 
-See the [documentation](http://cocoadocs.org/docsets/YYHRequest) for more information.
+See the [documentation](http://yayuhh.github.io/YYHRequest/) for more information.
 
 ## Changes
 
