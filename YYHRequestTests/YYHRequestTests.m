@@ -20,6 +20,8 @@
     NSURL *url = [NSURL URLWithString:@"http://www.google.com/"];
     YYHRequest *request = [YYHRequest requestWithURL:url];
     
+    self w
+    
     XCTAssertTrue([request.method isEqualToString:@"GET"]);
     XCTAssertTrue(request.completeOnMainThread);
     XCTAssertEqual(request.url, url);
