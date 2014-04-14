@@ -80,12 +80,12 @@ Create request and load manually.
 /**
  Request headers.
  */
-@property (nonatomic, copy) NSMutableDictionary *headers;
+@property (nonatomic, strong) NSMutableDictionary *headers;
 
 /**
  Request parameters.
  */
-@property (nonatomic, copy) NSMutableDictionary *parameters;
+@property (nonatomic, strong) NSMutableDictionary *parameters;
 
 /**
  Determines if the success and failure callbacks are called on the main thread. Default to YES.
